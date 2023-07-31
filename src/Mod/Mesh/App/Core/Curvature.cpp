@@ -57,6 +57,13 @@ MeshCurvature::MeshCurvature(const MeshKernel& kernel)
     std::generate(mySegment.begin(), mySegment.end(), Base::iotaGen<FacetIndex>(0));
 }
 
+void MeshCurvature::setValuesByIndex(int i, float a, float b)
+{
+    myCurvature[i].fMinCurvature = a;
+    myCurvature[i].fMaxCurvature = b;
+}
+
+
 MeshCurvature::MeshCurvature(const MeshKernel& kernel, const std::vector<FacetIndex>& segm)
   : myKernel(kernel), myMinPoints(20), myRadius(0.5f), mySegment(segm)
 {

@@ -62,7 +62,8 @@ public:
     void ComputePerFace(bool parallel);
     void ComputePerVertex();
     const std::vector<CurvatureInfo>& GetCurvature() const { return myCurvature; }
-
+    void setValuesByIndex(int i, float a, float b);
+    
 private:
     const MeshKernel& myKernel;
     unsigned long myMinPoints;

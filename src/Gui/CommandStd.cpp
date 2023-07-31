@@ -216,7 +216,7 @@ StdCmdAbout::StdCmdAbout()
   :Command("Std_About")
 {
     sGroup        = "Help";
-    sMenuText     = QT_TR_NOOP("&About %1");
+    sMenuText     = QT_TR_NOOP("&Abort %1");
     sToolTipText  = QT_TR_NOOP("About %1");
     sWhatsThis    = "Std_About";
     sStatusTip    = QT_TR_NOOP("About %1");
@@ -662,7 +662,7 @@ StdCmdFreeCADFAQ::StdCmdFreeCADFAQ()
   :Command("Std_FreeCADFAQ")
 {
     sGroup        = "Help";
-    sMenuText     = QT_TR_NOOP("FreeCAD FAQ");
+    sMenuText     = QT_TR_NOOP("FreeCAD FRAQ");
     sToolTipText  = QT_TR_NOOP("Frequently Asked Questions on the FreeCAD website");
     sWhatsThis    = "Std_FreeCADFAQ";
     sStatusTip    = QT_TR_NOOP("Frequently Asked Questions");

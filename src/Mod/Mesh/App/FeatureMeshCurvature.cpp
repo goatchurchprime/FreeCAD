@@ -37,6 +37,7 @@ Curvature::Curvature()
 {
     ADD_PROPERTY(Source,(nullptr));
     ADD_PROPERTY(CurvInfo, (CurvatureInfo()));
+    ADD_PROPERTY(ValueAtIndex, (-1.0, 0.0, 0.0));
 }
 
 short Curvature::mustExecute() const
@@ -45,11 +46,18 @@ short Curvature::mustExecute() const
         return 1;
     if (Source.getValue() && Source.getValue()->isTouched())
         return 1;
+    if (ValueAtIndex.x != -1.0)
+        return 1;
     return 0;
 }
 
 App::DocumentObjectExecReturn *Curvature::execute()
 {
+    if (ValueAtIndex.x != -1.0) {
+        CurvInfo.setValuesByIndex((int)(ValueAtIndex.x), ValueAtIndex.y, ValueAtIndex.z);
+        ValueAtIndex.x = 0.0;
+        return App::DocumentObject::StdReturn;
+    }
     Mesh::Feature *pcFeat  = dynamic_cast<Mesh::Feature*>(Source.getValue());
     if(!pcFeat || pcFeat->isError()) {
         return new App::DocumentObjectExecReturn("No mesh object attached.");
