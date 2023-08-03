@@ -45,6 +45,7 @@ public:
 
     App::PropertyLink Source;
     PropertyCurvatureList CurvInfo;
+    App::PropertyVector ValueAtIndex;
 
     /** @name methods override Feature */
     //@{
